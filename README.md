@@ -49,3 +49,11 @@ Developer → GitHub → GitHub Actions (CI)
 → Pull Latest Image → Restart Container → Live Application
 
 ---
+
+
+
+## 📊 Architecture Diagram 
+
+```markdown
+![CI-CD Architecture](assest/Architecture.png)
+---
