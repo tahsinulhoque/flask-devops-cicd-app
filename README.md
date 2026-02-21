@@ -61,15 +61,16 @@ Developer → GitHub → GitHub Actions (CI)
 ---
 ## 🛠 Tech Stack
 
-Python (Flask)
-Docker
-DockerHub (Container Registry)
-GitHub Actions (CI/CD)
-AWS EC2
-Linux (Ubuntu Server)
-SSH Automation
+- Python (Flask)
+- Docker
+- DockerHub (Container Registry)
+- GitHub Actions (CI/CD)
+- AWS EC2
+- Linux (Ubuntu Server)
+- SSH Automation
 
 📁 Project Structure
+```
 flask-devops-cicd-app/
 │
 ├── app/
@@ -83,101 +84,101 @@ flask-devops-cicd-app/
 ├── requirements.txt
 ├── run.py
 └── .github/workflows/ci.yml
+```
 
 ## 💻 Local Development Setup
 1️⃣ Clone Repository
-git clone https://github.com/tahsinulhoque/flask-devops-cicd-app.git
-cd flask-devops-cicd-app
+- git clone https://github.com/tahsinulhoque/flask-devops-cicd-app.git
+- cd flask-devops-cicd-app
 
 2️⃣ Create Virtual Environment
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate      # Windows
+- python -m venv venv
+- source venv/bin/activate   # Linux/Mac
+- venv\Scripts\activate      # Windows
 
 3️⃣ Install Dependencies
-pip install -r requirements.txt
+- pip install -r requirements.txt
 
 4️⃣ Run Application
-python run.py
-http://localhost:5000
+- python run.py
+- http://localhost:5000
 
 ## 🐳 Docker Setup
-### Build Docker Image
-docker build -t flask-devops-app .
+Build Docker Image
+- docker build -t flask-devops-app .
 
-### Run Container
-docker run -p 5000:5000 flask-devops-app
+Run Container
+- docker run -p 5000:5000 flask-devops-app
 
-### 📦 Push Image to DockerHub
-docker tag flask-devops-app tahsinuldev/flask-devops-app:v1.0
-docker push tahsinuldev/flask-devops-app:v1.0
+📦 Push Image to DockerHub
+- docker tag flask-devops-app tahsinuldev/flask-devops-app:v1.0
+- docker push tahsinuldev/flask-devops-app:v1.0
 
 ## ⚙️ CI Pipeline (GitHub Actions)
-
 The CI workflow performs:
+- Install dependencies
+- Run unit tests
+- Build Docker image
+- Push image to DockerHub
 
-Install dependencies
-Run unit tests
-Build Docker image
-Push image to DockerHub
-
-### Triggered on:
-push to main branch
-
-### Workflow file:
-.github/workflows/ci.yml
+Triggered on:
+- push to main branch
+Workflow file:
+- .github/workflows/ci.yml
 
 ## 🚀 CD Pipeline (Automatic Deployment)
 
 The CD process:
-GitHub Actions logs into EC2 via SSH
-Pulls latest Docker image
-Stops existing container
-Removes old container
-Runs new container with restart policy
+- GitHub Actions logs into EC2 via SSH
+- Pulls latest Docker image
+- Stops existing container
+- Removes old container
+- Runs new container with restart policy
 
 ### Deployment Command Used:
-docker run -d -p 80:5000 --restart always --name flask-app tahsinuldev/flask-devops-app:latest
+- docker run -d -p 80:5000 --restart always --name flask-app tahsinuldev/flask-devops-app:latest
 
 ## ☁️ AWS EC2 Deployment Setup
-### EC2 Configuration
-Ubuntu 22.04
+EC2 Configuration
+- Ubuntu 22.04
 
-### Security Group:
-Port 22 (SSH)
-Port 80 (HTTP)
-### Install Docker on EC2
-sudo apt update
-sudo apt install docker.io -y
-sudo systemctl start docker
-sudo systemctl enable docker
-sudo usermod -aG docker ubuntu
+Security Group:
+- Port 22 (SSH)
+- Port 80 (HTTP)
+
+Install Docker on EC2: 
+- sudo apt update
+- sudo apt install docker.io -y
+- sudo systemctl start docker
+- sudo systemctl enable docker
+- sudo usermod -aG docker ubuntu
 
 ## 🌐 Live Application
-
 Public IP:
 http://YOUR_EC2_PUBLIC_IP
 
 ## 🔐 Production Features
-
-Fully automated CI/CD
-Secure SSH deployment
-Docker container auto-restart policy
-No manual production access required
-Versioned Docker images
+- Fully automated CI/CD
+- Secure SSH deployment
+- Docker container auto-restart policy
+- No manual production access required
+- Versioned Docker images
 
 ## 🔮 Future Improvements
-
-Add Nginx reverse proxy
-Add HTTPS using Let's Encrypt
-Add monitoring (CloudWatch / Prometheus)
-Add multi-environment support (dev/staging/prod)
-Implement Blue-Green deployment strategy
+- Add Nginx reverse proxy
+- Add HTTPS using Let's Encrypt
+- Add monitoring (CloudWatch / Prometheus)
+- Add multi-environment support (dev/staging/prod)
+- Implement Blue-Green deployment strategy
 
 ## 📈 Key Learnings
+- Real-world CI/CD automation
+- Docker image lifecycle management
+- Cloud-based deployment workflows
+- Secure SSH-based infrastructure automation
+- Production reliability strategies
 
-Real-world CI/CD automation
-Docker image lifecycle management
-Cloud-based deployment workflows
-Secure SSH-based infrastructure automation
-Production reliability strategies
+## 📄 License
+- This project is licensed under the MIT License.
+
+---
