@@ -102,13 +102,13 @@ python run.py
 http://localhost:5000
 
 ## 🐳 Docker Setup
-# Build Docker Image
+### Build Docker Image
 docker build -t flask-devops-app .
 
-# Run Container
+### Run Container
 docker run -p 5000:5000 flask-devops-app
 
-# 📦 Push Image to DockerHub
+### 📦 Push Image to DockerHub
 docker tag flask-devops-app tahsinuldev/flask-devops-app:v1.0
 docker push tahsinuldev/flask-devops-app:v1.0
 
@@ -121,10 +121,10 @@ Run unit tests
 Build Docker image
 Push image to DockerHub
 
-Triggered on:
+### Triggered on:
 push to main branch
 
-Workflow file:
+### Workflow file:
 .github/workflows/ci.yml
 
 ## 🚀 CD Pipeline (Automatic Deployment)
@@ -137,5 +137,5 @@ Stops existing container
 Removes old container
 Runs new container with restart policy
 
-Deployment Command Used:
+### Deployment Command Used:
 docker run -d -p 80:5000 --restart always --name flask-app tahsinuldev/flask-devops-app:latest
