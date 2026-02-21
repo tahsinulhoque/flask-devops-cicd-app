@@ -54,6 +54,6 @@ Developer → GitHub → GitHub Actions (CI)
 
 ## 📊 Architecture Diagram 
 
-```markdown
+```
 ![CI-CD Architecture](assest/Architecture.png)
 ---
