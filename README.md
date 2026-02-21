@@ -101,3 +101,41 @@ pip install -r requirements.txt
 python run.py
 http://localhost:5000
 
+## 🐳 Docker Setup
+# Build Docker Image
+docker build -t flask-devops-app .
+
+# Run Container
+docker run -p 5000:5000 flask-devops-app
+
+# 📦 Push Image to DockerHub
+docker tag flask-devops-app tahsinuldev/flask-devops-app:v1.0
+docker push tahsinuldev/flask-devops-app:v1.0
+
+## ⚙️ CI Pipeline (GitHub Actions)
+
+The CI workflow performs:
+
+Install dependencies
+Run unit tests
+Build Docker image
+Push image to DockerHub
+
+Triggered on:
+push to main branch
+
+Workflow file:
+.github/workflows/ci.yml
+
+## 🚀 CD Pipeline (Automatic Deployment)
+
+The CD process:
+
+GitHub Actions logs into EC2 via SSH
+Pulls latest Docker image
+Stops existing container
+Removes old container
+Runs new container with restart policy
+
+Deployment Command Used:
+docker run -d -p 80:5000 --restart always --name flask-app tahsinuldev/flask-devops-app:latest
