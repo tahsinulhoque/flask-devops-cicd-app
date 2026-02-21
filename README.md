@@ -130,7 +130,6 @@ push to main branch
 ## 🚀 CD Pipeline (Automatic Deployment)
 
 The CD process:
-
 GitHub Actions logs into EC2 via SSH
 Pulls latest Docker image
 Stops existing container
@@ -139,3 +138,46 @@ Runs new container with restart policy
 
 ### Deployment Command Used:
 docker run -d -p 80:5000 --restart always --name flask-app tahsinuldev/flask-devops-app:latest
+
+## ☁️ AWS EC2 Deployment Setup
+### EC2 Configuration
+Ubuntu 22.04
+
+### Security Group:
+Port 22 (SSH)
+Port 80 (HTTP)
+### Install Docker on EC2
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo usermod -aG docker ubuntu
+
+## 🌐 Live Application
+
+Public IP:
+http://YOUR_EC2_PUBLIC_IP
+
+## 🔐 Production Features
+
+Fully automated CI/CD
+Secure SSH deployment
+Docker container auto-restart policy
+No manual production access required
+Versioned Docker images
+
+## 🔮 Future Improvements
+
+Add Nginx reverse proxy
+Add HTTPS using Let's Encrypt
+Add monitoring (CloudWatch / Prometheus)
+Add multi-environment support (dev/staging/prod)
+Implement Blue-Green deployment strategy
+
+## 📈 Key Learnings
+
+Real-world CI/CD automation
+Docker image lifecycle management
+Cloud-based deployment workflows
+Secure SSH-based infrastructure automation
+Production reliability strategies
