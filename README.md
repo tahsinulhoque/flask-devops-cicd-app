@@ -59,3 +59,45 @@ Developer → GitHub → GitHub Actions (CI)
 </p>
 
 ---
+## 🛠 Tech Stack
+
+Python (Flask)
+Docker
+DockerHub (Container Registry)
+GitHub Actions (CI/CD)
+AWS EC2
+Linux (Ubuntu Server)
+SSH Automation
+
+📁 Project Structure
+flask-devops-cicd-app/
+│
+├── app/
+│   ├── __init__.py
+│   ├── routes.py
+│
+├── tests/
+│   └── test_routes.py
+│
+├── Dockerfile
+├── requirements.txt
+├── run.py
+└── .github/workflows/ci.yml
+
+## 💻 Local Development Setup
+1️⃣ Clone Repository
+git clone https://github.com/tahsinulhoque/flask-devops-cicd-app.git
+cd flask-devops-cicd-app
+
+2️⃣ Create Virtual Environment
+python -m venv venv
+source venv/bin/activate   # Linux/Mac
+venv\Scripts\activate      # Windows
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Run Application
+python run.py
+http://localhost:5000
+
